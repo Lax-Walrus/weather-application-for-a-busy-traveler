@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1> Current Weather Events </h1>
+    </header>
+
+    <main class="container">
+
+        <div class="row">
+            <div class="col-3" id="search-feature">
+                <form id="weather-search"> <label for="City-search"></label>
+                    <input type="text" id="City" placeholder="Enter a City">
+
+                </form>
+
+            </div>
+
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-12" id="deeper-look">
+                        <div class="current-city"></div>
+
+                        <div class="temp"></div>
+                        <div class="humidity"></div>
+                        <div class="wind-speed"></div>
+                        <div class="uvindex"></div>
+
+
+
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col-12" id="five-day">
+                            <h2> This week</h2>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

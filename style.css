@@ -1,0 +1,27 @@
+#header {
+  text-align: center;
+}
+
+#search-feature {
+  text-align: center;
+  border: 1px solid black;
+  height: 800px;
+}
+
+#weather-search {
+  margin-top: 30px;
+}
+
+#deeper-look {
+  text-align: center;
+  margin-left: 40px;
+  border: 1px solid black;
+  height: 400px;
+}
+
+#five-day {
+  text-align: center;
+  margin-left: 40px;
+  border: 1px solid black;
+  height: 400px;
+}
