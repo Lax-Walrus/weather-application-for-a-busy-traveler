@@ -1,7 +1,7 @@
 console.log("this is linked");
 // variables
 var apiKey = "676649a33e95382fb9220015cd3bcce8";
-var city = "Bellingham";
+// var city = "Bellingham";
 var lat = "48";
 var lon = "122";
 var queryURLWeather =
@@ -25,6 +25,17 @@ var queryURLUV =
   lon +
   "&appid=" +
   apiKey;
+
+$("#search-feature").on("sumbmit", function(){
+preventDefault()
+
+var userSearch = $("user-search").val()
+return (userSearch)
+})
+
+var city = userSearch
+
+
 // api function
 $.ajax({
   url: queryURLWeather,
@@ -103,7 +114,7 @@ $.ajax({
     var day = fiveDayForecast.list[i].dt_txt;
     var dayTemp = Math.ceil(fiveDayForecast.list[i].main.temp);
     var dayHum = fiveDayForecast.list[i].main.humidity;
-    var dayWindSpd = fiveDayForecast.list[i].wind[0];
+    var dayWindSpd = Math.ceil(fiveDayForecast.list[i].wind.speed);
 
     // creating li items & append
     var dayLI = $("<li>");
@@ -119,7 +130,7 @@ $.ajax({
     listUl.append(humLI);
 
     var windLI = $("<li>");
-    windLI.text("Wind Speed: " + dayWindSpd);
+    windLI.text("Wind Speed: " + dayWindSpd + " KPH");
     listUl.append(windLI);
 
     // append ul to div and div to html
