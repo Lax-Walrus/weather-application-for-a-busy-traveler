@@ -1,7 +1,7 @@
 console.log("this is linked");
 // variables
 var apiKey = "676649a33e95382fb9220015cd3bcce8";
-var city = "Bellingham";
+var city = "Los Angeles";
 var lat = "48";
 var lon = "122";
 var queryURLWeather =
