@@ -25,3 +25,10 @@
   border: 1px solid black;
   height: 400px;
 }
+
+.history-btn {
+  width: 100%;
+  padding: 4px;
+  display: block;
+  margin-top: 10px;
+}
