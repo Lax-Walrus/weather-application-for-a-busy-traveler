@@ -1,5 +1,14 @@
+body {
+  background-color: midnightblue;
+}
+.container {
+  background-color: lightblue;
+  opacity: 90%;
+}
+
 #header {
   text-align: center;
+  color: thistle;
 }
 
 #search-feature {
@@ -26,9 +35,28 @@
   height: 400px;
 }
 
+#submit {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  background-color: teal;
+  border: 0px;
+}
+
+#clear {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  background-color: teal;
+  border: 0px;
+}
+
 .history-btn {
   width: 100%;
   padding: 4px;
   display: block;
-  margin-top: 10px;
+  margin: 0 auto;
+  background-color: teal;
+  border: 0px;
+  margin-top: 20px;
 }

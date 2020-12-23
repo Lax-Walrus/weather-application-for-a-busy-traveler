@@ -2,8 +2,10 @@ console.log("this is linked");
 // variables
 var apiKey = "676649a33e95382fb9220015cd3bcce8";
 var userHistory = [];
-// localStorage.getItem(JSON.parse(button, userHistory)) || [];
-
+var historyList = JSON.parse(localStorage.getItem("historyList")) || [];
+generateBTN(historyList);
+console.log(historyList);
+// submit on click
 $("#submit").on("click", function () {
   event.preventDefault();
   $(".current-city").empty();
@@ -14,7 +16,24 @@ $("#submit").on("click", function () {
   $("#five-day-forecast").empty();
   console.log("I hath been clicked");
   var city = $("#City").val();
+  // takes search history and pushes it into an array
+  userHistory.push(city);
+  console.log(userHistory);
+  generateBTN(userHistory);
+  weatherfunc(city);
+});
+// button search history generator
+function generateBTN(cityList) {
+  $("#history").empty();
+  for (let i = 0; i < cityList.length; i++) {
+    var button = $("<button>");
+    button.attr("class", "history-btn");
+    button.text(cityList[i]);
+    $("#history").prepend(button);
+  }
+}
 
+function weatherfunc(city) {
   var queryURLWeather =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
@@ -37,19 +56,6 @@ $("#submit").on("click", function () {
     console.log(currentWeather);
 
     // user history
-
-    userHistory.push(city);
-    console.log(userHistory);
-
-    for (let i = 0; i < userHistory.length; i++) {
-      var button = $("<button>");
-      button.attr("class", "history-btn");
-      button.text(userHistory[i]);
-      $("#history").prepend(button);
-      console.log(button);
-    }
-
-    localStorage.setItem(JSON.stringify(button), JSON.stringify(userHistory));
 
     //   image of current weather
     var statusIMG = $("<img>");
@@ -111,13 +117,13 @@ $("#submit").on("click", function () {
       }
 
       if (uvIndex < 6 && uvcheck >= 3) {
-        uvSpan.attr("style", "background-color: yellow;");
+        uvSpan.css("background-color", "yellow");
       }
       if (uvIndex < 8 && uvcheck >= 6) {
-        uvSpan.attr("style", "background-color: orange;");
+        uvSpan.css("background-color", "orange");
       }
       if (uvIndex < 11 && uvcheck >= 8) {
-        uvSpan.attr("style", "background-color: red");
+        uvSpan.css("background-color", "red");
       }
 
       $(".uvindex").append(uvIndex);
@@ -165,12 +171,26 @@ $("#submit").on("click", function () {
       $("#five-day-forecast").append(cardDiv);
     }
     $("#City").empty().val("");
+    localStorage.setItem("historyList", JSON.stringify(userHistory));
   });
+}
+// button load on click for past searches
+$(document).on("click", ".history-btn", function () {
+  $(".current-city").empty();
+  $(".temp").empty();
+  $(".humidity").empty();
+  $(".wind-speed").empty();
+  $(".uvindex").empty();
+  $("#five-day-forecast").empty();
+  var buttonCity = $(this).text();
+  console.log(this);
+  // console.log(buttonCity);
+  weatherfunc(buttonCity);
 });
 
 // clear button
-
 $("#clear").click(function () {
   event.preventDefault();
   $("#history").empty();
+  localStorage.clear();
 });
